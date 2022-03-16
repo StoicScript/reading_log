@@ -1,7 +1,7 @@
-console.log('Hello, world!')
-
 const btn = document.getElementById('add')
-const list = document.getElementById('bookList')
+const card = document.querySelector('.card')
+const cardsSection = document.getElementById('cards-section')
+
 
 btn.addEventListener("click", addBookToLibrary)
 
@@ -10,27 +10,36 @@ let myLibrary = [];
 function Book(title,author,pages,isRead) {
   this.title = title,
   this.author = author,
-  this.pages = pages,
-  this.isRead = isRead,
-  this.info = function(){
-      return `${title} by ${author}, ${pages} pages, ${isRead}`
-  }
+  this.pages = pages
 }
 
 function addBookToLibrary() {
-  let title = window.prompt('What is the title of the book?','test')
+  let title = prompt('What is the title of the book?','test')
   let author = prompt('Who is the author?')
   let pages = prompt('How many pages is it?')
-  let isRead = prompt('Did you read it yet?')
 
-  const newBook = new Book(title,author,pages,isRead)
+  const newBook = new Book(title,author,pages)
   myLibrary.push(newBook)
 
-  createListItem(myLibrary[myLibrary.length - 1].info())
+  createCard(myLibrary[myLibrary.length - 1])
 }
 
-function createListItem(info) {
-    let li = document.createElement('li');
-    li.innerHTML = info ;
-    list.appendChild(li)
+function createCard(info) {
+    let newCard = document.createElement('div');
+    newCard.classList.add('card')
+    cardsSection.appendChild(newCard);
+    let titleP = document.createElement('p')
+    let authorP = document.createElement('p')
+    let pagesP = document.createElement('p')
+    let removeBtn = document.createElement('button')
+    titleP.innerHTML = info.title
+    authorP.innerHTML = info.author
+    pagesP.innerHTML = `${info.pages} pages`
+    removeBtn.innerHTML = 'Remove'
+    newCard.append(titleP,authorP,pagesP,removeBtn)
+    titleP.classList.add('cardInfo')
+    authorP.classList.add('cardInfo')
+    pagesP.classList.add('cardInfo')
+    removeBtn.classList.add('remove')
 }
+

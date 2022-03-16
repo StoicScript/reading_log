@@ -1,4 +1,40 @@
-* {
-    background-color: blanchedalmond ;
+body {
+    background-color: rgb(140, 238, 255) ;
     font-family: Helvetica;
+    text-align: center;
+}
+
+
+#cards-section {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.card{
+    width: 200px;
+    height: 320px;
+    background-color: white;
+    border-radius: 2%;
+    border: 2px solid black;
+    box-shadow: -4px 4px black;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.cardInfo{
+    font-weight: bold;
+    font-size: 15px;
+    margin: 2px;
+}
+
+.remove{
+    margin-top: 10px;
+}
+
+.cardImg{
+    width: 150px;
+    border-radius: ;
 }
