@@ -1,6 +1,8 @@
 body {
     font-family: Helvetica;
     text-align: center;
+    margin: 0;
+
 }
 
 input {
@@ -130,4 +132,30 @@ input {
 #openModalBtn:active, #addBookBtn:active{
     transform: translate(-2px,2px);
     box-shadow: none;
+}
+
+footer{
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    height: 60px;
+    margin: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid black;
+}   
+
+.footer-text{
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
 }
