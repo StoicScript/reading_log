@@ -14,6 +14,11 @@ input {
     font-size: 16px;
 }
 
+h1{
+    font-size: 45px;
+    margin: 15px 0px 25px 0px;
+}
+
 #cards-section {
     max-width: 1020px;
     margin:50px auto auto auto;
