@@ -2,7 +2,6 @@ body {
     font-family: Helvetica;
     text-align: center;
     margin: 0;
-
 }
 
 input {
@@ -17,10 +16,6 @@ input {
 
 input[type='file']{
     display:none;
-}
-
-input[type='number']{
-    margin-bottom: 10px;
 }
 
 h1{
