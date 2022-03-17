@@ -12,6 +12,7 @@ const deleteBtn = document.querySelectorAll('.remove')
 
 let myLibrary = [];
 
+
 addBtn.addEventListener('click', () => {
   openModal();
 })
@@ -65,6 +66,9 @@ function createCard(info) {
     let authorP = document.createElement('p')
     let pagesP = document.createElement('p')
     let removeBtn = document.createElement('button')
+    let readStatus = document.createElement('div');    
+
+    readStatus.innerHTML = 'Not Yet Read'
 
     if(uploaded_image.length < 1){
       image.src = 'laws.jpg'
@@ -82,10 +86,29 @@ function createCard(info) {
     authorP.classList.add('cardInfo')
     pagesP.classList.add('cardInfo', 'pages')
     removeBtn.classList.add('remove')
+    readStatus.classList.add('readStatus')
+
     cardsSection.appendChild(newCard);
-    newCard.append(removeBtn,image,titleP,authorP,pagesP)
+    newCard.append(removeBtn,image,titleP,authorP,pagesP, readStatus)
 
     addRemoveButtons()
+    addReadStatus()
+}
+
+function addReadStatus(){
+  const readDiv = document.querySelectorAll('.readStatus')
+
+  readDiv.forEach(function (i) {
+    i.addEventListener('click', function() {
+      i.classList.toggle('read');
+      if(i.classList.contains('read')){
+        i.innerHTML = 'Read'
+      } else {
+        i.innerHTML = 'Not Yet Read'
+      }
+      console.log(i.innerHTML)
+    });
+  });  
 }
 
 function addRemoveButtons(){
@@ -96,6 +119,7 @@ function addRemoveButtons(){
     });
   });
 }
+
 
 let uploaded_image = ''
 

@@ -1,7 +1,7 @@
 body {
     font-family: Helvetica;
     text-align: center;
-    margin: 0;
+    margin: 0px;
 }
 
 input {
@@ -44,6 +44,24 @@ h1{
     padding: 10px;
 }
 
+.readStatus{
+    position: relative;
+    bottom: -2.6%;
+    background-color: rgb(253, 119, 119);
+    height: 30px;
+    width: 110%;
+    margin-top: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.readStatus.read{
+    background-color: rgb(153, 255, 167);
+}
+
+
 .remove{
     align-self: flex-start;
     border: none;
@@ -66,8 +84,7 @@ h1{
 .cardImg{
     width: auto;
     height: 250px;
-    border-radius: 2px;
-    margin-bottom: auto;
+    margin-bottom: 8px;
 }
 
 #form-section{
