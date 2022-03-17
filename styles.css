@@ -131,7 +131,7 @@ h1{
     font-weight:bold;
     font-size: 16px;
     height: 40px;;
-
+    cursor:pointer;
 }
 
 #openModalBtn:active, #addBookBtn:active{
@@ -166,4 +166,8 @@ a:link{
 
 a:hover{
     text-decoration: underline;
+}
+
+#close:hover, .remove{
+    cursor:pointer;
 }
