@@ -3,17 +3,27 @@ body {
     text-align: center;
 }
 
+input {
+    border: 2px solid black;
+    box-shadow: -3px 3px black;
+    height: 30px;
+    width: 250px;
+    font-weight:bold;
+    font-size: 16px;
+}
 
 #cards-section {
-    margin-top: 50px;
+    max-width: 1020px;
+    margin:50px auto auto auto;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     gap: 40px;
 }
 
 .card{
     width: 200px;
-    min-height: 330px;
+    min-height: 350px;
     background-color: white;
     border: 2px solid black;
     box-shadow: -6px 6px black;
@@ -23,42 +33,48 @@ body {
     padding: 10px;
 }
 
+.remove{
+    align-self: flex-start;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.2rem;
+}
+
 .cardInfo{
     font-weight: bold;
     font-size: 15px;
     margin: 2px;
 }
 
-.remove{
-    margin-top: 10px;
+.cardInfo.pages{
+    font-weight: normal;
 }
 
 .cardImg{
-    width: 150px;
+    width: auto;
+    height: 250px;
     border-radius: 2px;
-    margin: 5px;
+    margin-bottom: auto;
 }
 
 #form-section{
-
-min-height: 300px;
-    background: orange;
+    min-height: 300px;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-
 .modal{
     position:fixed;
-    top:35%;
+    top:30%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     border: 2px solid black;
     z-index: 10;
     background-color: white;
-    width: 500px;
+    width: 400px;
     box-shadow: -6px 6px black;
 }
 
@@ -97,4 +113,21 @@ min-height: 300px;
 #overlay.active{
     opacity: 1;
     pointer-events: all;
+}
+
+#addBookBtn, #openModalBtn {
+    background-color: white;
+    width: 120px;
+    border: 2px solid black;
+    box-shadow: -3px 3px black;
+    height: 30px;
+    font-weight:bold;
+    font-size: 16px;
+    height: 40px;;
+
+}
+
+#openModalBtn:active, #addBookBtn:active{
+    transform: translate(-2px,2px);
+    box-shadow: none;
 }

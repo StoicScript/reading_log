@@ -1,13 +1,16 @@
-const addBtn = document.getElementById('add')
+const addBtn = document.getElementById('openModalBtn')
+
+const modal = document.getElementById('modal')
 const closeBtn = document.getElementById('close')
 const overlay = document.getElementById('overlay')
-const modal = document.getElementById('modal')
-
-const card = document.querySelector('.card')
-const cardsSection = document.getElementById('cards-section')
-const deleteBtn = document.querySelectorAll('.remove')
 const form = document.getElementById('form')
+const imageInput = document.getElementById('imgUpload')
 
+const cardsSection = document.getElementById('cards-section')
+const card = document.querySelector('.card')
+const deleteBtn = document.querySelectorAll('.remove')
+
+let myLibrary = [];
 
 addBtn.addEventListener('click', () => {
   openModal();
@@ -15,7 +18,6 @@ addBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
   closeModal();
 })
-
 overlay.addEventListener('click', () => {
   closeModal()
 })
@@ -30,7 +32,6 @@ function closeModal(){
   overlay.classList.remove('active')
 }
 
-
 form.addEventListener('submit', function(event){
   event.preventDefault();
 
@@ -42,9 +43,6 @@ form.addEventListener('submit', function(event){
   form.reset()
   closeModal()
 })
-
-
-let myLibrary = [];
 
 function Book(title,author,pages) {
   this.title = title,
@@ -67,19 +65,25 @@ function createCard(info) {
     let authorP = document.createElement('p')
     let pagesP = document.createElement('p')
     let removeBtn = document.createElement('button')
-    image.src = 'laws.jpg'
+
+    if(uploaded_image.length < 1){
+      image.src = 'laws.jpg'
+    } else {
+      image.src = uploaded_image;
+    }
+
     titleP.innerHTML = info.title
     authorP.innerHTML = info.author
     pagesP.innerHTML = `${info.pages} pages`
-    removeBtn.innerHTML = 'Remove'
+    removeBtn.innerHTML = '&times;'
     newCard.classList.add('card')
     image.classList.add('cardImg')
     titleP.classList.add('cardInfo')
     authorP.classList.add('cardInfo')
-    pagesP.classList.add('cardInfo')
+    pagesP.classList.add('cardInfo', 'pages')
     removeBtn.classList.add('remove')
     cardsSection.appendChild(newCard);
-    newCard.append(image,titleP,authorP,pagesP,removeBtn)
+    newCard.append(removeBtn,image,titleP,authorP,pagesP)
 
     addRemoveButtons()
 }
@@ -93,6 +97,15 @@ function addRemoveButtons(){
   });
 }
 
+let uploaded_image = ''
+
+imageInput.addEventListener("change", function() {
+   const reader = new FileReader();
+   reader.addEventListener("load", () => {
+     uploaded_image = reader.result;
+});
+   reader.readAsDataURL(this.files[0]);
+});
 
 const firstBook = new Book('The Laws of Human Nature','Robert Green', 301)
 myLibrary.push(firstBook)
