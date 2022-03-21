@@ -67,7 +67,7 @@ function createCard(info) {
     let removeBtn = document.createElement('button')
     let readStatusDiv = document.createElement('div');    
 
-    readStatusDiv.innerHTML = 'Not Yet Read'
+    readStatusDiv.innerHTML = 'Not Read'
 
     if(uploaded_image.length < 1){
       image.src = 'laws.jpg'
@@ -87,28 +87,24 @@ function createCard(info) {
     removeBtn.classList.add('remove')
     readStatusDiv.classList.add('readStatus')
 
+    readStatusDiv.id = `book-${myLibrary.length - 1}`
+
     cardsSection.appendChild(newCard);
     newCard.append(removeBtn,image,titleP,authorP,pagesP, readStatusDiv)
 
     addRemoveButtons()
-    addReadStatus()
+    
+    readStatusDiv.addEventListener('click', () => {
+      readStatusDiv.classList.toggle('read')
+      if(readStatusDiv.classList.contains('read')){
+        readStatusDiv.innerHTML = 'Read'
+        } else {
+        readStatusDiv.innerHTML = 'Not Read'
+        }
+    })
+
 }
 
-function addReadStatus(){
-  const readDiv = document.querySelectorAll('.readStatus')
-
-  readDiv.forEach(function (i) {
-    i.addEventListener('click', function() {
-      this.classList.toggle('read');
-      if(this.classList.contains('read')){
-        this.innerHTML = 'Read'
-      } else {
-        this.innerHTML = 'Not Yet Read'
-      }
-      console.log(this.innerHTML)
-    });
-  });  
-}
 
 function addRemoveButtons(){
   const deleteBtn = document.querySelectorAll('.remove')
