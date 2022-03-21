@@ -14,6 +14,10 @@ input {
     text-transform: capitalize;
 }
 
+input:focus{
+outline-color: rgb(253, 119, 119);
+}
+
 input[type='file']{
     display:none;
 }
@@ -21,6 +25,11 @@ input[type='file']{
 h1{
     font-size: 45px;
     margin: 15px 0px 25px 0px;
+}
+
+.header{
+    padding-bottom: 20px;;
+    border-bottom: 2px solid black;
 }
 
 #cards-section {
@@ -148,6 +157,10 @@ h1{
 
 #imgUploadButton{
     padding: 8px 5px;
+}
+
+#imgUploadButton:hover{
+    transform: translate(-2px,2px);
 }
 
 #addBookBtn, #openModalBtn, #imgUploadButton {
