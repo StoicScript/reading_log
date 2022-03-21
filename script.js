@@ -8,7 +8,6 @@ const imageInput = document.getElementById('imgUpload')
 
 const cardsSection = document.getElementById('cards-section')
 const card = document.querySelector('.card')
-const deleteBtn = document.querySelectorAll('.remove')
 
 let myLibrary = [];
 
@@ -66,9 +65,9 @@ function createCard(info) {
     let authorP = document.createElement('p')
     let pagesP = document.createElement('p')
     let removeBtn = document.createElement('button')
-    let readStatus = document.createElement('div');    
+    let readStatusDiv = document.createElement('div');    
 
-    readStatus.innerHTML = 'Not Yet Read'
+    readStatusDiv.innerHTML = 'Not Yet Read'
 
     if(uploaded_image.length < 1){
       image.src = 'laws.jpg'
@@ -86,10 +85,10 @@ function createCard(info) {
     authorP.classList.add('cardInfo')
     pagesP.classList.add('cardInfo', 'pages')
     removeBtn.classList.add('remove')
-    readStatus.classList.add('readStatus')
+    readStatusDiv.classList.add('readStatus')
 
     cardsSection.appendChild(newCard);
-    newCard.append(removeBtn,image,titleP,authorP,pagesP, readStatus)
+    newCard.append(removeBtn,image,titleP,authorP,pagesP, readStatusDiv)
 
     addRemoveButtons()
     addReadStatus()
@@ -100,13 +99,13 @@ function addReadStatus(){
 
   readDiv.forEach(function (i) {
     i.addEventListener('click', function() {
-      i.classList.toggle('read');
-      if(i.classList.contains('read')){
-        i.innerHTML = 'Read'
+      this.classList.toggle('read');
+      if(this.classList.contains('read')){
+        this.innerHTML = 'Read'
       } else {
-        i.innerHTML = 'Not Yet Read'
+        this.innerHTML = 'Not Yet Read'
       }
-      console.log(i.innerHTML)
+      console.log(this.innerHTML)
     });
   });  
 }

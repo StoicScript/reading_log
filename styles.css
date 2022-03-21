@@ -55,6 +55,7 @@ h1{
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border-top: 2px solid black
 }
 
 .readStatus.read{
@@ -82,7 +83,8 @@ h1{
 }
 
 .cardImg{
-    width: auto;
+    object-fit: cover;
+    width: 160px;
     height: 250px;
     margin-bottom: 8px;
 }
