@@ -91,8 +91,6 @@ function createCard(info) {
 
     cardsSection.appendChild(newCard);
     newCard.append(removeBtn,image,titleP,authorP,pagesP, readStatusDiv)
-
-    addRemoveButtons()
     
     readStatusDiv.addEventListener('click', () => {
       readStatusDiv.classList.toggle('read')
@@ -103,18 +101,10 @@ function createCard(info) {
         }
     })
 
+    removeBtn.addEventListener('click', () =>{
+      removeBtn.parentElement.remove();
+    })
 }
-
-
-function addRemoveButtons(){
-  const deleteBtn = document.querySelectorAll('.remove')
-  deleteBtn.forEach(function (i) {
-    i.addEventListener('click', function() {
-      i.parentElement.remove();
-    });
-  });
-}
-
 
 let uploaded_image = ''
 
@@ -129,5 +119,3 @@ imageInput.addEventListener("change", function() {
 const firstBook = new Book('The Laws of Human Nature','Robert Green', 301)
 myLibrary.push(firstBook)
 createCard(myLibrary[myLibrary.length - 1])
-
-addRemoveButtons()
